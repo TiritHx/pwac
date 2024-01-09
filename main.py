@@ -15,7 +15,9 @@ for i in range(w):
             data['#%02x%02x%02x' % pix[i, y]] = []
         data['#%02x%02x%02x' % pix[i, y]].append(pos)
         pos += 1
-# file = open('data.txt', 'w')
-# file.write(str(data).replace(" ", "").replace("'", "")) # potrzeba procedularnego generowania pliku, początek pliku to główne rzeczy typu wysokośc 512x512, główny kolor do zamiany, ustalenie znaków które mało ważą itp
-# file.close() 
-print("\ndone\n")
+print("\ndone")
+
+# TODO 
+# 1 dodaj os sprawdzanie czy plik data.pwac istnieje
+# 2 potrzeba procedularnego generowania pliku, początek pliku to główne rzeczy typu wysokośc 512x512, główny kolor do zamiany, ustalenie znaków które mało ważą itp
+# 3 nie wiem kurwa napij sie czegoś bo tu jebniesz
