@@ -2,7 +2,7 @@
 # program będzie iterował po każdym pikselu i dla każdego koloru jaki jest na zdjęciu będzie dawał numer tego piksela
 # jeśli jakiś kolor będzie najwięcej razy używany będzie ustawiony na default dla pozostałych pikseli
 # to samo będzie sie działo z kanałem alpha dla plików png
-# photo with avant-garde compression - pwac, it sounds fancy
+# photo with avant-garde compression - pwac, it sounds fancy -> picture with state_of_the_art compression, yes state of the art is one word here dont judge me
 import os
 from PIL import Image
 from func import Byte_Conv
@@ -19,21 +19,25 @@ for i in range(w):
         pos += 1
 print("\nPixel data added to dictionary")
 
-if not os.path.isfile("data.pwac"): # create output file if it doesnt exist
-    file = open("data.pwac", "x")
+ofn = "data.pwsc" # output file name
+if not os.path.isfile(ofn): # create output file if it doesnt exist
+    file = open(ofn, "x")
     file.close()
-    print("Output file 'data.pwac' created")
+    print("Output file '" + ofn + "' created")
 
-file = open("data.pwac", "wb")
+file = open(ofn, "wb")
 if w == h:
-    file.write(Byte_Conv(w))
+    file.write(str(w).encode('utf-8'))
 else:
     file.write(Byte_Conv((str(w) + "x" + str(h)).encode('utf-8')))
 max_val = max(data, key=data.get)
-file.write(max_val.encode('utf-8'))
+file.write(('\n' + max_val).encode('utf-8'))
 file.close()
 print("Image stored succesfully\n")
 
+with open(ofn, 'rb') as file:
+    binary_data = file.read()
+    print(binary_data.decode('utf-8'))
 
 
 # TODO 
