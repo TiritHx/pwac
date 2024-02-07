@@ -1,0 +1,19 @@
+# this place is for code that will be recycled later or code that is too good to be thrown away, dont judge me I have done this before
+
+file = open(ofn, "wb")
+if w == h:
+    file.write(str(w).encode('utf-8'))
+else:
+    file.write(Byte_Conversion((str(w) + "x" + str(h)).encode('utf-8')))
+
+while len(data) > 1:
+    max_val = max(data, key=data.get)
+    file.write(('\n' + max_val).encode('utf-8'))
+    file.write(str(data.pop(max_val)).encode('utf-8'))
+
+file.close()
+print("Image stored succesfully\n")
+
+with open(ofn, 'rb') as file:
+    binary_data = file.read()
+    print(binary_data.decode('utf-8'))
