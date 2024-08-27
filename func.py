@@ -25,7 +25,7 @@ def Image_To_Dict(w, h, pix): # converts image to dictionary of colored pixels
                 data['#%02x%02x%02x' % pix[i, y]] = []
             data['#%02x%02x%02x' % pix[i, y]].append(pos)
             pos += 1
-    print("\nPixel data added to dictionary")
+    print("Pixel data stored")
     return data
 
 def File_Exist(file_name):
